@@ -1,6 +1,7 @@
 {
   "name": "HelloWorldNodeJS",
   "dependencies": {
+    "node": "^21.7.1",
     "open": "^8.4.0"
   }
 }
