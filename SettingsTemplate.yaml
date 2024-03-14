@@ -1,0 +1,10 @@
+body:
+  - type: dropdown
+    attributes:
+      name: packageManager
+      label: Package Manager
+      description: Package Manager to use for installing applications
+      defaultValue: Winget
+      options:
+        - Winget
+        - Chocolatey

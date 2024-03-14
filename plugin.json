@@ -1,12 +1,13 @@
 {
   "ID": "427af2d93887868f8179665uy661c6c3",
   "ActionKeyword": "ins",
-  "Name": "WingetInstallerPlugin",
-  "Description": "Plugin to install winget packages",
+  "Name": "Flow Installer Plugin",
+  "Description": "Plugin to install packages in Flow Launcher",
   "Author": "Ro_off",
   "Version": "1.0.1",
   "Language": "javascript",
   "Website": "https://github.com/Flow-Launcher/Flow.Launcher.Plugin.HelloWorldNodeJS",
   "ExecuteFileName": "main.js",
   "IcoPath": "Images\\app.png"
+  
 }
