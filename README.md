@@ -1,3 +1,4 @@
-This is an example TypeScript/Javascript plugin project which demonstrates the interaction of request from Flow and then call back to the plugin.
+# Flow App Installer [alpha]
 
-The modules used in this plugin are kept in the node_modules folder, built by the GitHub workflow during release publish.
+This is a simple installer for the Flow App. It is a simple script that will install the app and all its dependencies via Winget or Chocolatey (configurable).
+Plugin currently in development, use at your own risk.
