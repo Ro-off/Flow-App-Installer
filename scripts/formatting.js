@@ -42,7 +42,6 @@ export function findMatchSymbolsInString(string, userInput) {
   const userInputArray = userInput.toLowerCase().split("");
   const stringLower = string.toLowerCase();
   const stringWordsFirstLetters = stringLower.split(" ").map((word) => word[0]);
-  // console.error(stringWordsFirstLetters);
   const matchingSymbolsIndexes = [];
   const indexOfFullMatchFirstSymbol = stringLower.indexOf(
     userInput.toLowerCase()
