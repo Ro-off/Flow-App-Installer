@@ -23,6 +23,7 @@ export function formatWingetSearchResults(stdout) {
       .trim();
     packages.push({ name, id, source });
   }
+
   return packages;
 }
 
@@ -43,6 +44,7 @@ export function findMatchSymbolsInString(string, userInput) {
   const stringLower = string.toLowerCase();
   const stringWordsFirstLetters = stringLower.split(" ").map((word) => word[0]);
   const matchingSymbolsIndexes = [];
+
   const indexOfFullMatchFirstSymbol = stringLower.indexOf(
     userInput.toLowerCase()
   );
@@ -64,5 +66,6 @@ export function findMatchSymbolsInString(string, userInput) {
       }
     });
   }
+
   return matchingSymbolsIndexes;
 }
