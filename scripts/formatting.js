@@ -14,8 +14,8 @@ export function formatWingetSearchResults(stdout) {
     headerString.indexOf("Source"),
     headerString.length - 1,
   ];
-
-  for (let i = 2; i < lines.length - 2; i++) {
+  const resultsNumber = lines.length === 14 ? 12 : lines.length - 1;
+  for (let i = 2; i < resultsNumber; i++) {
     const name = lines[i].slice(NamePlacement[0], NamePlacement[1]).trim();
     const id = lines[i].slice(IdPlacement[0], IdPlacement[1]).trim();
     const source = lines[i]
