@@ -8,7 +8,7 @@ import { displayChocoResults, displayWingetResults } from "./displayResults.js";
 
 export function chocoSearch(userInput) {
   exec(
-    `choco search ${userInput} --page-size=10 --acceptlicense --limitoutput --no-progress --no-color`,
+    `choco search "${userInput}" --order-by-popularity --by-tag-only --page-size=10 --acceptlicense --limitoutput --no-progress --no-color`,
     (error, stdout, stderr) => {
       if (stdout === "") {
         displayNotFindResult();
