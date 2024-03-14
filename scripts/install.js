@@ -1,9 +1,12 @@
 import { exec } from "child_process";
 
 export function chocoInstall(packageName) {
+  const command = `choco install ${packageName} -y`;
+  const options = { shell: "powershell.exe" };
+
   exec(
-    `Start-Process powershell -Verb runAs -ArgumentList "choco install ${packageName} -y"`,
-    { shell: "powershell.exe" },
+    `Start-Process powershell -Verb runAs -ArgumentList "${command}"`,
+    options,
     (error, _stdout, stderr) => {
       if (error) {
         console.error(`Error executing choco install: ${error.message}`);
@@ -16,9 +19,12 @@ export function chocoInstall(packageName) {
 }
 
 export function wingetInstall(packageId) {
+  const command = `winget install --id ${packageId} --accept-package-agreements`;
+  const options = { shell: "powershell.exe" };
+
   exec(
-    `Start-Process powershell -Verb runAs -ArgumentList "winget install --id ${packageId} --accept-package-agreements"`,
-    { shell: "powershell.exe" },
+    `Start-Process powershell -Verb runAs -ArgumentList "${command}"`,
+    options,
     (error, _stdout, stderr) => {
       if (error) {
         console.error(`Error executing winget install: ${error.message}`);
