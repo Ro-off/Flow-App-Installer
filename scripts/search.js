@@ -22,7 +22,7 @@ export function chocoSearch(userInput) {
 }
 
 export function wingetSearch(userInput) {
-  exec(`winget search ${userInput} --count 10`, (error, stdout, stderr) => {
+  exec(`winget search "${userInput}" --count 10`, (error, stdout, stderr) => {
     if (error) {
       displayNotFindResult();
       return;
