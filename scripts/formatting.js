@@ -37,3 +37,16 @@ export function formatChocoSearchResults(stdout) {
   }
   return packages;
 }
+
+export function findMatchSymbolsInString(string, userInput) {
+  const userInputArray = userInput.toLowerCase().split("");
+  const stringLower = string.toLowerCase();
+  const matchingSymbolsIndexes = [];
+  userInputArray.forEach((symbol) => {
+    const symbolIndex = stringLower.indexOf(symbol);
+    if (symbolIndex !== -1) {
+      matchingSymbolsIndexes.push(symbolIndex);
+    }
+  });
+  return matchingSymbolsIndexes;
+}

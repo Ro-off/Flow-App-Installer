@@ -1,3 +1,4 @@
+import { findMatchSymbolsInString } from "./formatting.js";
 const { method, parameters, settings } = JSON.parse(process.argv[2]);
 
 export function displayEmptyQueryResult() {
@@ -41,6 +42,10 @@ export function displayChocoResults(packages) {
   return JSON.stringify({
     result: packages.map((packageItem) => ({
       Title: packageItem.name,
+      titleHighlightData: findMatchSymbolsInString(
+        packageItem.name,
+        parameters[0]
+      ),
       Subtitle: `Version: ${packageItem.version}`,
       JsonRPCAction: {
         method: "install_package",
@@ -56,6 +61,10 @@ export function displayWingetResults(packages) {
   return JSON.stringify({
     result: packages.map((packageItem) => ({
       Title: packageItem.name,
+      titleHighlightData: findMatchSymbolsInString(
+        packageItem.name,
+        parameters[0]
+      ),
       Subtitle: `Id: ${packageItem.id}, Source: ${packageItem.source}`,
       JsonRPCAction: {
         method: "install_package",
