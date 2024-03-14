@@ -42,11 +42,20 @@ export function findMatchSymbolsInString(string, userInput) {
   const userInputArray = userInput.toLowerCase().split("");
   const stringLower = string.toLowerCase();
   const matchingSymbolsIndexes = [];
-  userInputArray.forEach((symbol) => {
-    const symbolIndex = stringLower.indexOf(symbol);
-    if (symbolIndex !== -1) {
-      matchingSymbolsIndexes.push(symbolIndex);
+  const indexOfFullMatchFirstSymbol = stringLower.indexOf(
+    userInput.toLowerCase()
+  );
+  if (indexOfFullMatchFirstSymbol !== -1) {
+    for (let i = 0; i < userInputArray.length; i++) {
+      matchingSymbolsIndexes.push(indexOfFullMatchFirstSymbol + i);
     }
-  });
+  } else {
+    userInputArray.forEach((symbol, index) => {
+      const symbolIndex = stringLower.indexOf(symbol, index);
+      if (symbolIndex !== -1) {
+        matchingSymbolsIndexes.push(symbolIndex);
+      }
+    });
+  }
   return matchingSymbolsIndexes;
 }
