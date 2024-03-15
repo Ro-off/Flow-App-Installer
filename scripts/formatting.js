@@ -1,9 +1,9 @@
 const { settings } = JSON.parse(process.argv[2]);
 
 export function formatWingetSearchResults(stdout) {
-  const lines = stdout.split("\n");
+  const lines = ("Name" + stdout.split("Name")[1]).split("\n");
   const packages = [];
-  const headerString = "Name" + lines[0].split("Name")[1];
+  const headerString = lines[0];
   const NamePlacement = [
     headerString.indexOf("Name"),
     headerString.indexOf("Id") - 1,
@@ -16,6 +16,7 @@ export function formatWingetSearchResults(stdout) {
     headerString.indexOf("Source"),
     headerString.length - 1,
   ];
+
   const resultsNumber =
     lines.length === Number(settings.stringsToDisplay) + 4
       ? Number(settings.stringsToDisplay) + 2
@@ -48,6 +49,7 @@ export function findMatchSymbolsInString(string, userInput) {
   const userInputArray = userInput.toLowerCase().split("");
   const stringLower = string.toLowerCase();
   const stringWordsFirstLetters = stringLower.split(" ").map((word) => word[0]);
+
   const matchingSymbolsIndexes = [];
 
   const indexOfFullMatchFirstSymbol = stringLower.indexOf(
