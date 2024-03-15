@@ -7,6 +7,8 @@ import {
   formatWingetSearchResults,
 } from "./formatting.js";
 
+const { settings } = JSON.parse(process.argv[2]);
+
 export function chocoSearch(userInput) {
   const command = `choco search "${userInput}" --order-by-popularity --by-tag-only --page-size=10 --acceptlicense --limitoutput --no-progress --no-color`;
 
@@ -23,7 +25,9 @@ export function chocoSearch(userInput) {
 }
 
 export function wingetSearch(userInput) {
-  const command = `winget search "${userInput}" --count 10`;
+  const command = `winget search "${userInput}" --count ${Number(
+    settings.stringsToDisplay
+  )}`;
 
   exec(command, (error, stdout, stderr) => {
     if (error) {

@@ -7,6 +7,9 @@ const { method, parameters, settings } = JSON.parse(process.argv[2]);
 
 if (method === "query") {
   const userInput = parameters;
+  if (isNaN(Number(settings.stringsToDisplay))) {
+    console.error("Error: stringsToDisplay is not a number");
+  }
 
   if (userInput.toString() === "") {
     displayEmptyQueryResult();

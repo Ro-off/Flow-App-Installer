@@ -1,3 +1,5 @@
+const { settings } = JSON.parse(process.argv[2]);
+
 export function formatWingetSearchResults(stdout) {
   const lines = stdout.split("\n");
   const packages = [];
@@ -14,7 +16,10 @@ export function formatWingetSearchResults(stdout) {
     headerString.indexOf("Source"),
     headerString.length - 1,
   ];
-  const resultsNumber = lines.length === 14 ? 12 : lines.length - 1;
+  const resultsNumber =
+    lines.length === Number(settings.stringsToDisplay) + 4
+      ? Number(settings.stringsToDisplay) + 2
+      : lines.length - 1;
   for (let i = 2; i < resultsNumber; i++) {
     const name = lines[i].slice(NamePlacement[0], NamePlacement[1]).trim();
     const id = lines[i].slice(IdPlacement[0], IdPlacement[1]).trim();

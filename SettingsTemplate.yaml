@@ -8,3 +8,9 @@ body:
       options:
         - Winget
         - Chocolatey
+  - type: input
+    attributes:
+      name: stringsToDisplay
+      label: Results display
+      description: Controls how many results to display
+      defaultValue: "10"
