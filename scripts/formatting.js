@@ -46,7 +46,7 @@ export function formatChocoSearchResults(stdout) {
 }
 
 export function findMatchSymbolsInString(string, userInput) {
-  const userInputArray = userInput.toLowerCase().split("");
+  const userInputArrayLower = userInput.toLowerCase().split("");
   const stringLower = string.toLowerCase();
   const stringWordsFirstLetters = stringLower
     .split(" ")
@@ -59,15 +59,15 @@ export function findMatchSymbolsInString(string, userInput) {
     userInput.toLowerCase()
   );
   if (indexOfFullMatchFirstSymbol !== -1) {
-    for (let i = 0; i < userInputArray.length; i++) {
+    for (let i = 0; i < userInputArrayLower.length; i++) {
       matchingSymbolsIndexes.push(indexOfFullMatchFirstSymbol + i);
     }
-  } else if (stringWordsFirstLetters.includes(userInputArray.join(""))) {
-    userInputArray.forEach((letter, index) => {
+  } else if (stringWordsFirstLetters.includes(userInputArrayLower.join(""))) {
+    userInputArrayLower.forEach((letter, index) => {
       matchingSymbolsIndexes.push(stringLower.indexOf(" " + letter) + 1);
     });
   } else {
-    userInputArray.forEach((symbol, index) => {
+    userInputArrayLower.forEach((symbol, index) => {
       const symbolIndex = stringLower.indexOf(symbol, index);
       if (symbolIndex !== -1) {
         matchingSymbolsIndexes.push(symbolIndex);
